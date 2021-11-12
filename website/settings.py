@@ -89,9 +89,16 @@ DATABASES = {
 }
 
 # Google Map API
+GOOGLE_MAP_API = ''#env('GOOGLE_MAP_API')
 
-GOOGLE_MAP_API = env('GOOGLE_MAP_API')
-
+# Firebase API
+API_KEY = env('API_KEY')
+AUTH_DOMAIN= env('AUTH_DOMAIN')
+DATABASE_URL= env('DATABASE_URL')
+PROJECT_ID= env('PROJECT_ID')
+STORAGE_BUCKET= env('STORAGE_BUCKET')
+MESSAGING_SENDER_ID= env('MESSAGING_SENDER_ID')
+APP_ID= env('APP_ID')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
