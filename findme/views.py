@@ -22,12 +22,13 @@ def index(request):
 
 def get_data(request):
     last_locations = list()
-    for location in database.child('sensors').child('fZS0U-DtRumJebVn_6o6e-').child('locations').get().each():
+    context = {}
+
+    for location in database.child('sensors').child('dnD4f6GoSpi2vSaIJKsbjk').child('locations').get().each():
         last_locations.append(location.val())
-    context = {
-        'name': database.child('sensors').child('fZS0U-DtRumJebVn_6o6e-').child('name').get().val(),
-        'locations': last_locations,
-        'marker': last_locations[-1],
-    }
+
+    context['name'] = database.child('sensors').child('dnD4f6GoSpi2vSaIJKsbjk').child('name').get().val()
+    context['locations'] = last_locations
+    context['marker'] = last_locations[0]
 
     return render(request, 'findme/ajax.html', context)
